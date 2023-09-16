@@ -1,0 +1,27 @@
+@use "../../../utilities" as u;
+
+$bu: u.$bu;
+
+.header {
+  @include u.flex-center() {
+  }
+
+  &__logo {
+    display: block;
+    width: 30%;
+    max-width: 100px;
+
+    img {
+      filter: invert(9%) sepia(96%) saturate(7026%) hue-rotate(3deg)
+        brightness(98%) contrast(93%);
+      width: 100%;
+    }
+
+    margin-bottom: $bu;
+  }
+
+  &__title {
+    letter-spacing: 2px;
+    word-spacing: $bu;
+  }
+}

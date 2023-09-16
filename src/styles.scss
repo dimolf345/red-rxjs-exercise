@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@use "utilities" as u;
+
+$bu: u.$bu;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+app-root {
+  font-family: "Rubik", sans-serif;
+  display: block;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(235, 229, 229) 98%
+  );
+
+  @include u.padding();
+}
+
+.h1 {
+  font-size: $bu * 4;
+}
+
+.h2 {
+  font-size: $bu * 3;
+}
+
+.h3 {
+  font-size: $bu * 2.25;
+}
