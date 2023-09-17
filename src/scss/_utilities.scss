@@ -1,0 +1,78 @@
+//BU stands for BASE UNIT, used for margin and padding
+$bu: 8px !default;
+$color-primary: #686364;
+$color-accent: #d11509;
+
+//To set quickly all direction padding (if ratio ==1) or
+// top-bottom, left-right padding (if ratio != 1) starting with
+// $bu as base-value
+@mixin padding($multiplier: 1, $ratio: 1) {
+  $base-padding: $bu * $multiplier;
+  @if $ratio != 1 {
+    $padding-tb: $base-padding * $ratio;
+
+    padding: $padding-tb $base-padding;
+  } @else {
+    padding: $base-padding;
+  }
+}
+
+//Margin: Same as padding
+@mixin margin($multiplier: 1, $ratio: 1) {
+  $base-margin: $bu * $multiplier;
+  @if $ratio != 1 {
+    $margin-tb: $base-margin * $ratio;
+
+    margin: $margin-tb $base-margin;
+  } @else {
+    margin: $base-margin;
+  }
+}
+
+@mixin flex-center($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+  @content;
+}
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $shadow-color) {
+  box-shadow: $x-axis $y-axis $blur $color;
+}
+
+@mixin btn($variant: "primary", $padding: $bu) {
+  padding: $bu ($bu * 2);
+  border-radius: $bu;
+  background-color: white;
+  border: 1px solid;
+  transition: all 0.2s ease;
+
+  @if $variant == "primary" {
+  } @else {
+  }
+
+  &:hover {
+    @if $variant == "primary" {
+      background-color: $color-primary;
+      color: white;
+      border-color: white;
+    } @else {
+      background-color: $color-accent;
+      color: white;
+      border-color: white;
+    }
+  }
+
+  @content;
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 1px;
+}

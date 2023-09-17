@@ -1,0 +1,87 @@
+@use "utilities" as u;
+
+$bu: u.$bu;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+app-root {
+  font-family: "Rubik", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(235, 229, 229) 98%
+  );
+
+  @include u.padding();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: $bu * 4;
+}
+
+h2 {
+  font-size: $bu * 3;
+}
+
+h3 {
+  font-size: $bu * 2.25;
+}
+
+p,
+a {
+  font-size: $bu * 1.8;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.btn {
+  padding: $bu ($bu * 2);
+  border-radius: $bu;
+  background-color: white;
+  border: 1px solid;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  @extend .btn;
+  border-color: u.$color-primary;
+  color: u.$color-primary;
+
+  &:hover {
+    background-color: u.$color-primary;
+    color: white;
+    border-color: white;
+  }
+}
+
+.btn--accent {
+  @extend .btn;
+  border-color: u.$color-accent;
+  color: u.$color-accent;
+
+  &:hover {
+    background-color: u.$color-accent;
+    color: white;
+    border-color: white;
+  }
+}

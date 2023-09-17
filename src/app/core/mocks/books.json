@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "imageUrl": "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg",
+      "title": "Lorem Ipsum",
+      "author": "Mamt",
+      "isbn": "mamt è bon",
+      "pages": 98,
+      "pubblicationDate": "2022-10-05",
+      "rating": 4,
+      "description": "tua madre a pecora"
+    }
+  ]
+}
