@@ -4,10 +4,16 @@
       "imageUrl": "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg",
       "title": "Lorem Ipsum",
       "author": "Mamt",
-      "isbn": "mamt è bon",
       "pages": 98,
-      "pubblicationDate": "2022-10-05",
-      "rating": 4,
+      "pubblicationYear": "2022",
+      "description": "tua madre a pecora"
+    },
+    {
+      "imageUrl": "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg",
+      "title": "Dorian Gray",
+      "author": "Oscar Wilde",
+      "pages": 301,
+      "pubblicationYear": "2019",
       "description": "tua madre a pecora"
     }
   ]

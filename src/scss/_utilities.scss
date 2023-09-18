@@ -76,3 +76,35 @@ $color-accent: #d11509;
   overflow: hidden;
   width: 1px;
 }
+
+.btn {
+  padding: $bu ($bu * 2);
+  border-radius: $bu;
+  background-color: white;
+  border: 1px solid;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  @extend .btn;
+  border-color: $color-primary;
+  color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary;
+    color: white;
+    border-color: white;
+  }
+}
+
+.btn--accent {
+  @extend .btn;
+  border-color: $color-accent;
+  color: $color-accent;
+
+  &:hover {
+    background-color: $color-accent;
+    color: white;
+    border-color: white;
+  }
+}

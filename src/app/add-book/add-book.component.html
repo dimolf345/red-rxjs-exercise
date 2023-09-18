@@ -1,1 +1,31 @@
-<p>add-book works!</p>
+<form class="form" aria-label="add new book">
+  <h2>Add new book to Library</h2>
+  <div class="form__control">
+    <label for="title">Title</label>
+    <input class="btn" type="text" id="title" />
+  </div>
+  <div class="form__control">
+    <label for="author">Author</label>
+    <input class="btn" type="text" id="author" />
+  </div>
+  <div class="form__control">
+    <label for="pages">Pages</label>
+    <input class="btn" type="number" min="1" id="pages" />
+  </div>
+  <div class="form__control">
+    <label for="year">Pubblication Year</label>
+    <input class="btn" type="text" id="year" />
+  </div>
+  <div class="form__control form__control--column">
+    <label for="description">Description</label>
+    <textarea class="btn" id="description" rows="4"></textarea>
+  </div>
+  <div class="form__control form__control--column">
+    <label for="">Image url</label>
+    <input class="btn" type="text" id="isbn" />
+  </div>
+</form>
+<div class="image-preview">
+  <span>Image preview will be displayed here</span>
+  <img src="" alt="" />
+</div>

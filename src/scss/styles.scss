@@ -1,4 +1,5 @@
 @use "utilities" as u;
+@use "forms";
 
 $bu: u.$bu;
 
@@ -52,36 +53,4 @@ a {
 a {
   text-decoration: none;
   display: block;
-}
-
-.btn {
-  padding: $bu ($bu * 2);
-  border-radius: $bu;
-  background-color: white;
-  border: 1px solid;
-  transition: all 0.2s ease;
-}
-
-.btn--primary {
-  @extend .btn;
-  border-color: u.$color-primary;
-  color: u.$color-primary;
-
-  &:hover {
-    background-color: u.$color-primary;
-    color: white;
-    border-color: white;
-  }
-}
-
-.btn--accent {
-  @extend .btn;
-  border-color: u.$color-accent;
-  color: u.$color-accent;
-
-  &:hover {
-    background-color: u.$color-accent;
-    color: white;
-    border-color: white;
-  }
 }

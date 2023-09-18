@@ -1,13 +1,17 @@
 import { Component, Input } from '@angular/core';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Book } from 'src/app/core/models/book.interface';
 
 @Component({
   selector: 'app-booklist',
   template: `
     <ul class="booklist">
-      <h2 class="booklist__heading">
-        There are {{ books.length }} book/s in your library
-      </h2>
+      <div class="booklist__heading">
+        <h2>{{ books.length }} book/s found</h2>
+        <a class="btn btn--primary" routerLink="add-book">
+          <fa-icon size="1x" [icon]="plusIcon"></fa-icon>
+        </a>
+      </div>
       <app-booktile [book]="book" *ngFor="let book of books"> </app-booktile>
     </ul>
   `,
@@ -16,4 +20,6 @@ import { Book } from 'src/app/core/models/book.interface';
 export class BooklistComponent {
   @Input()
   books: Book[] = [];
+
+  plusIcon = faPlus;
 }

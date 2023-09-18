@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   //$queryObj is updated by app-search-form component.
   //Each time the user modifies the form, $searchedBooks is updated
-  //and passed as input to app-booklist
+  //and passed as input to app-booklist.
   ngOnInit(): void {
     this.$books = this.bookService.$books;
     this.$query.subscribe((queryObj) => {
@@ -46,8 +46,12 @@ export class HomeComponent implements OnInit {
   }
 
   private filterBooksByTitleAndPages(queryObj: BooksFilters): Book[] {
-    const result = this.$books.value.filter((book) =>
-      book.title.toLocaleLowerCase().includes(queryObj.title)
+    const result = this.$books.value.filter(
+      (book) =>
+        (book.title.toLocaleLowerCase().includes(queryObj.title) &&
+          queryObj.pages !== 0 &&
+          book.pages >= queryObj.pages) ||
+        queryObj.pages === 0
     );
     return result;
   }

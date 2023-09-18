@@ -1,0 +1,28 @@
+@use "../../scss/utilities" as u;
+
+.image-preview {
+  width: 180px;
+  height: 180px;
+  background: u.$color-primary;
+  margin: 0 auto;
+  position: relative;
+
+  span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+}
+
+.form__control input {
+  max-width: 250px;
+}
+
+.form__control--column input {
+  max-width: none;
+}

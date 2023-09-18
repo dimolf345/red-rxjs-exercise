@@ -1,4 +1,4 @@
-@use "../../../scss/utilities" as u;
+@use "utilities" as u;
 
 .form {
   &__control {
@@ -8,6 +8,12 @@
     margin-bottom: 8px;
     gap: 24px;
     align-items: center;
+
+    &--column {
+      flex-direction: column;
+      align-items: stretch;
+      gap: u.$bu;
+    }
   }
 
   input[type="text"] {

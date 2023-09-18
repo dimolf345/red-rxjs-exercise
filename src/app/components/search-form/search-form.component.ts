@@ -18,22 +18,25 @@ import { BooksFilters } from 'src/app/core/models/booksFilters.interface';
 @Component({
   selector: 'app-search-form',
   template: `
-    <form [formGroup]="$f" aria-label="Search books">
-      <label class="sr-only" for="titleSearch">Search by title</label>
-      <input
-        id="titleSearch"
-        formControlName="title"
-        type="text"
-        placeholder="Search Form by titles"
-      />
-      <div>
-        <label for="pages-filter">Number of pages</label>
-        <select id="pages-filter" formControlName="pages">
-          <option value="0" selected>All</option>
-          <option value="100">0-100</option>
-          <option value="200">100-200</option>
-          <option value="300">200-300</option>
-          <option value="400">300-400</option>
+    <form class="form" [formGroup]="$f" aria-label="Search books">
+      <div class="form__control">
+        <label for="titleSearch">Title</label>
+        <input
+          class="btn"
+          id="titleSearch"
+          formControlName="title"
+          type="text"
+          placeholder="Search Form by titles"
+        />
+      </div>
+      <div class="form__control">
+        <label for="pages-filter">Pages</label>
+        <select class="btn" id="pages-filter" formControlName="pages">
+          <option value="0" selected><span>All</span></option>
+          <option value="100"><span>Up to 100</span></option>
+          <option value="200"><span>Up to 200</span></option>
+          <option value="300"><span>Up to 300</span></option>
+          <option value="400"><span>More than 400</span></option>
         </select>
       </div>
     </form>

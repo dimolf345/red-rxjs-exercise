@@ -11,8 +11,20 @@ $bu: u.$bu;
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
   &__heading {
-    font-size: $bu * 2;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
     margin-bottom: $bu;
+    align-items: center;
+
+    h2 {
+      font-size: $bu * 2;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .btn {
+      padding: 6px 8px;
+      color: rgb(42, 177, 30);
+    }
   }
 }
