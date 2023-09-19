@@ -1,10 +1,9 @@
 @use "../../scss/utilities" as u;
 
-.image-preview {
+.cover-preview {
   width: 180px;
   height: 180px;
   background: u.$color-primary;
-  margin: 0 auto;
   position: relative;
 
   span {
@@ -16,13 +15,37 @@
     width: 100%;
     text-align: center;
     color: white;
+    font-weight: 400;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+    height: 100%;
+    position: relative;
+  }
+
+  &--filled {
+    width: fit-content;
   }
 }
 
-.form__control input {
-  max-width: 250px;
+.form__control {
+  .form__control input {
+    max-width: 250px;
+  }
+
+  .ng-invalid.ng-touched {
+    outline: 2px solid u.$color-accent;
+  }
+
+  .form__control--column input {
+    max-width: none;
+  }
 }
 
-.form__control--column input {
-  max-width: none;
+.form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }

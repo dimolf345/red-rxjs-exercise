@@ -1,12 +1,26 @@
 @use "utilities" as u;
 
 .form {
+  color: u.$color-primary;
+  font-weight: 500;
+
+  button[type="submit"] {
+    font-weight: bold;
+
+    &:disabled {
+      background-color: u.$color-primary;
+      color: lightgrey;
+      border: 1px solid transparent;
+    }
+  }
+
   &__control {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 8px;
-    gap: 24px;
+    gap: u.$bu u.$bu * 3;
     align-items: center;
 
     &--column {
@@ -25,5 +39,12 @@
   select:focus-within {
     outline: 1px solid u.$color-primary;
     border-color: u.$color-primary;
+  }
+
+  .error {
+    text-align: center;
+    width: 100%;
+    font-size: u.$bu * 1.5;
+    color: u.$color-accent;
   }
 }

@@ -1,31 +1,77 @@
-<form class="form" aria-label="add new book">
+<form class="form" aria-label="add new book" [formGroup]="newBookForm">
   <h2>Add new book to Library</h2>
+  <!-- Title -->
   <div class="form__control">
     <label for="title">Title</label>
-    <input class="btn" type="text" id="title" />
+    <input class="btn" type="text" id="title" formControlName="title" />
+    <p
+      class="error"
+      *ngIf="
+        newBookForm.controls['title'].errors &&
+        newBookForm.controls['title'].touched
+      "
+    >
+      Field is required
+    </p>
   </div>
+  <!-- Author -->
   <div class="form__control">
     <label for="author">Author</label>
-    <input class="btn" type="text" id="author" />
+    <input class="btn" type="text" id="author" formControlName="author" />
+    <p
+      class="error"
+      *ngIf="
+        newBookForm.controls['title'].errors &&
+        newBookForm.controls['title'].touched
+      "
+    >
+      Field is required
+    </p>
   </div>
+  <!-- Pages -->
   <div class="form__control">
     <label for="pages">Pages</label>
-    <input class="btn" type="number" min="1" id="pages" />
+    <input class="btn" type="number" id="pages" formControlName="pages" />
   </div>
+  <!-- Pubblication Year -->
   <div class="form__control">
     <label for="year">Pubblication Year</label>
-    <input class="btn" type="text" id="year" />
+    <input
+      class="btn"
+      type="text"
+      id="year"
+      placeholder="example: 2019"
+      formControlName="pubblicationYear"
+    />
   </div>
+  <!-- Description -->
   <div class="form__control form__control--column">
     <label for="description">Description</label>
-    <textarea class="btn" id="description" rows="4"></textarea>
+    <textarea
+      class="btn"
+      id="description"
+      rows="4"
+      formControlName="description"
+    ></textarea>
   </div>
+  <!-- Image Url -->
   <div class="form__control form__control--column">
-    <label for="">Image url</label>
-    <input class="btn" type="text" id="isbn" />
+    <label for="imageUrl">Image url</label>
+    <input class="btn" type="text" id="imageUrl" formControlName="imageUrl" />
+  </div>
+  <div class="form__submit">
+    <!-- Image preview -->
+    <div class="cover-preview" [ngClass]="coverImg && 'cover-preview--filled'">
+      <span>Image preview will be displayed here</span>
+      <img [src]="coverImg" [alt]="atlText" />
+    </div>
+    <!-- Submit btn -->
+    <button
+      type="submit"
+      [disabled]="!newBookForm.valid"
+      class="btn btn--primary"
+    >
+      Save book
+    </button>
   </div>
 </form>
-<div class="image-preview">
-  <span>Image preview will be displayed here</span>
-  <img src="" alt="" />
-</div>
