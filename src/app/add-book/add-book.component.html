@@ -1,4 +1,9 @@
-<form class="form" aria-label="add new book" [formGroup]="newBookForm">
+<form
+  class="form"
+  aria-label="add new book"
+  [formGroup]="newBookForm"
+  (ngSubmit)="onSubmit()"
+>
   <h2>Add new book to Library</h2>
   <!-- Title -->
   <div class="form__control">

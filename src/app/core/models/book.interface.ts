@@ -1,10 +1,9 @@
 export interface Book {
-  imageUrl: string;
+  id: string;
   title: string;
   author: string;
-  isbn: string;
   pages: number;
-  pubblicationDate: Date;
-  rating?: number;
+  imageUrl: string;
+  pubblicationYear: string;
   description?: string;
 }

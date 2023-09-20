@@ -1,6 +1,8 @@
 @use "../../../scss/utilities" as u;
 
 .form {
+  padding: 0 u.$bu;
+
   &__control {
     display: flex;
     flex-direction: row;

@@ -1,18 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import {
-  BehaviorSubject,
-  concatMap,
-  debounceTime,
-  map,
-  switchMap,
-  tap,
-} from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, debounceTime } from 'rxjs';
 import { BooksFilters } from 'src/app/core/models/booksFilters.interface';
 
 @Component({
@@ -54,8 +42,13 @@ export class SearchFormComponent implements OnInit {
     new BehaviorSubject<BooksFilters | null>(null);
 
   ngOnInit(): void {
-    this.$f.valueChanges.pipe(debounceTime(250)).subscribe((search) => {
-      this.$search?.next(search);
-    });
+    this.$f.valueChanges
+      .pipe(debounceTime(250))
+      .subscribe((search: BooksFilters) => {
+        this.$search?.next({
+          title: search.title,
+          pages: Number(search.pages),
+        });
+      });
   }
 }

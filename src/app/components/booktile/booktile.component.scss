@@ -1,13 +1,13 @@
+@use "../../../scss/utilities" as u;
+
 .tile {
   display: flex;
   gap: 16px;
-  border-top: 1px solid rgb(114, 105, 105);
-  border-bottom: 1px solid rgb(114, 105, 105);
+  border-bottom: 1px solid u.$color-primary;
   padding: 8px 0;
 
   &__img {
     width: 60px;
-    height: 60px;
     align-self: center;
   }
 

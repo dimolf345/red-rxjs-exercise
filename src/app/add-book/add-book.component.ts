@@ -1,11 +1,8 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BookService } from '../core/services/book.service';
+import { Book } from '../core/models/book.interface';
 
 @Component({
   selector: 'app-add-book',
@@ -17,9 +14,10 @@ export class AddBookComponent implements OnInit {
   coverImg: string = '';
   atlText: string = '';
 
-  constructor(private Router: Router) {}
+  constructor(private Router: Router, private bookService: BookService) {}
 
   ngOnInit(): void {
+    this.bookService.initBookService();
     this.createForm();
     this.newBookForm.get('imageUrl')?.valueChanges.subscribe((url) => {
       this.atlText = this.newBookForm.get('title')?.value
@@ -42,5 +40,17 @@ export class AddBookComponent implements OnInit {
       }),
       pages: new FormControl(1, [Validators.min(1)]),
     });
+  }
+
+  async onSubmit() {
+    //Verifies if there is already a book with same title/Author and if not
+    //add it to the db
+
+    const newBook = await this.bookService.addBook({
+      ...this.newBookForm.value,
+    });
+    console.log(newBook);
+    if (newBook) this.Router.navigate(['']);
+    else alert('Book not added');
   }
 }

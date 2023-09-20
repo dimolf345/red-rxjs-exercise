@@ -1,6 +1,7 @@
 {
   "books": [
     {
+      "id": "1695113298033",
       "imageUrl": "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg",
       "title": "Lorem Ipsum",
       "author": "Mamt",
@@ -9,6 +10,7 @@
       "description": "tua madre a pecora"
     },
     {
+      "id": "1695113298043",
       "imageUrl": "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg",
       "title": "Dorian Gray",
       "author": "Oscar Wilde",

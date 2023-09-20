@@ -1,69 +1,51 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Book } from '../models/book.interface';
-import bookData from '../mocks/books.json';
-import { JSONData } from '../models/JSONData.interface';
-import { BehaviorSubject, filter, tap } from 'rxjs';
+import { Observable } from 'rxjs';
+import { BookDB } from '../db/rxdb';
+import { BooksFilters } from '../models/booksFilters.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService implements OnDestroy {
-  $books: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>([]);
-  private _books: Book[] = this.$books.value;
+  private dao!: BookDB;
+  $books: Observable<Book[]> = new Observable<Book[]>();
+  // private _books: Book[] = this.$books;
 
-  constructor() {
-    this.populateLibrary();
+  constructor() {}
+
+  async initBookService() {
+    if (this.dao) return;
+    const db = await BookDB.createDBInstance();
+    await db.populateBookCollection();
+    this.$books = db.allBooks;
+    this.dao = db;
   }
 
-  //Searchs for books saved in localStore, otherwise populates the library from core/mocks/books.json file
-  private populateLibrary() {
-    const savedBooks = localStorage.getItem('books');
-    if (!savedBooks) {
-      this.$books.next(this.readBooksFromJson(bookData as unknown as JSONData));
-    } else {
-      this.$books.next(JSON.parse(savedBooks));
-    }
-    this.$books.subscribe(() => {
-      localStorage.setItem('books', JSON.stringify(this.$books.value));
-      this._books = this.$books.value;
-    });
+  async findBooks(queryObj?: BooksFilters) {
+    return await this.dao.find(queryObj);
   }
 
-  private readBooksFromJson(data: JSONData): Array<Book> {
-    if (!data.books) throw new Error('Data source not valid');
-    const bookList = data.books.map((book) => ({
-      ...book,
-      pubblicationDate: new Date(book.pubblicationDate),
-    }));
-    return bookList || [];
+  async addBook(book: Book) {
+    return await this.dao.addBook(book);
   }
 
-  addBook(book: Book): boolean {
-    if (!this.getBookByIsbn(book.isbn)) {
-      this._books.push(book);
-      this.$books.next(this._books);
-      return true;
-    }
-    return false;
+  async deleteBook(bookId: string) {
+    console.log('Service called');
+    return await this.dao.deleteBook(bookId);
   }
 
-  deleteBook(searchedIsbn: string) {
-    this.$books.next(this._books.filter((book) => book.isbn !== searchedIsbn));
-  }
+  // getBookByIsbn(searchedIsbn: string): Book | undefined {
+  //   return this._books.find((book) => book.id === searchedIsbn);
+  // }
 
-  getBookByIsbn(searchedIsbn: string): Book | undefined {
-    return this._books.find((book) => book.isbn === searchedIsbn);
-  }
+  // updateBookByIsbn(updatedBook: Book) {
+  //   this._books.map((book) => {
+  //     if (book.id === updatedBook.id) return updatedBook;
+  //     return book;
+  //   });
+  //   this.$books.next(this._books);
+  // }
 
-  updateBookByIsbn(updatedBook: Book) {
-    this._books.map((book) => {
-      if (book.isbn === updatedBook.isbn) return updatedBook;
-      return book;
-    });
-    this.$books.next(this._books);
-  }
-
-  ngOnDestroy(): void {
-    this.$books.unsubscribe();
-  }
+  ngOnDestroy(): void {}
 }

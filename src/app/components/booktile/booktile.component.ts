@@ -13,7 +13,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
       <p>{{ book.author }}</p>
       <p>{{ book.pages }} pages</p>
       <div class="tile__actions">
-        <a class="btn btn--primary" [routerLink]="'details/' + book.isbn">
+        <a class="btn btn--primary" [routerLink]="'details/' + book.id">
           <span class="sr-only">View More</span>
           <fa-icon [icon]="plusIcon"></fa-icon>
         </a>
@@ -36,8 +36,8 @@ export class BooktileComponent implements OnInit {
 
   constructor(private bookService: BookService) {}
 
-  onClick() {
-    this.bookService.deleteBook(this.book!.isbn);
+  async onClick() {
+    await this.bookService.deleteBook(this.book!.id);
   }
 
   ngOnInit() {
