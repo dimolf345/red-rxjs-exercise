@@ -13,6 +13,9 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
+  private readonly DEAFULT_IMAGE_URL =
+    'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg';
+
   newBookForm!: FormGroup;
   coverImg: string = '';
   atlText: string = '';
@@ -62,7 +65,7 @@ export class BooksComponent implements OnInit {
       this.atlText = this.newBookForm.get('title')?.value
         ? this.newBookForm.get('title')?.value + ' cover'
         : '';
-      this.coverImg = url;
+      this.coverImg = url || this.DEAFULT_IMAGE_URL;
     });
 
     this.book.subscribe((book) => {
@@ -86,7 +89,10 @@ export class BooksComponent implements OnInit {
         this.newBookForm.value
       );
     } else {
-      result = await this.bookService.addBook(this.newBookForm.value);
+      result = await this.bookService.addBook({
+        ...this.newBookForm.value,
+        id: String(Date.now()),
+      });
     }
     if (result) this.Router.navigate(['']);
     else alert('Book not added');
