@@ -1,5 +1,6 @@
 export default [
   {
+    id: '1695219955383',
     title: 'The Picture of Dorian Gray',
     author: 'Oscar Wilde',
     pages: 302,
@@ -10,6 +11,7 @@ export default [
       "Oscar Wilde's alluring novel of decadence and sin was a succes de scandale on publication. It follows Dorian Gray who, enthralled by his own exquisite portrait, exchanges his soul for eternal youth and beauty. Influenced by his friend Lord Henry Wotton, he is drawn into a corrupt double life, indulging his desires in secret while remaining a gentleman in the eyes of polite society. Only his portrait bears the traces of his depravity. This definitive edition includes a selection of contemporary reviews condemning the novel's immorality. ",
   },
   {
+    id: '1695219955333',
     title: 'Fight Club',
     author: 'Chuck Palahniuk',
     pages: 224,
@@ -20,6 +22,7 @@ export default [
       "VINTAGE CLASSICS' AMERICAN GOTHIC SERIES Spine-tingling, mind-altering and deliciously atmospheric, journey into the dark side of America with nine of its most uncanny classics. Every weekend, in basements and parking lots across the country, young men with good white-collar jobs and absent fathers take off their shoes and shirts and fight each other barehanded for as long as they have to. Then they go back to those jobs with blackened eyes and loosened teeth and the sense that they can handle anything. Fight Club is the invention of Tyler Durden, projectionist, waiter and dark, anarchic genius. And it's only the beginning of his plans for revenge on a world where cancer support groups have the corner on human warmth. 'Hypnotic, pitiless and told brilliantly' Bret Easton Ellis 'Like a noxious Doug Coupland, Palahiuk charts new-felt and totally contemporary categories of despair' Ali Smith, Guardian ",
   },
   {
+    id: '1695219955183',
     title: 'Pride and prejudice',
     author: 'Jane Austen',
     pages: 496,
@@ -29,6 +32,7 @@ export default [
     description: '',
   },
   {
+    id: '1695219955393',
     title: 'Waiting for Godot',
     author: 'Samuel Beckett',
     pages: 98,

@@ -8,7 +8,7 @@ import { Book } from 'src/app/core/models/book.interface';
     <ul class="booklist">
       <div class="booklist__heading">
         <h2>{{ books.length }} book/s found</h2>
-        <a class="btn btn--primary" routerLink="add-book">
+        <a class="btn btn--primary" routerLink="books">
           <fa-icon size="1x" [icon]="plusIcon"></fa-icon>
         </a>
       </div>

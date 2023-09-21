@@ -2,7 +2,7 @@
 
 .tile {
   display: flex;
-  gap: 16px;
+  gap: u.$bu * 2;
   border-bottom: 1px solid u.$color-primary;
   padding: 8px 0;
 
@@ -18,8 +18,12 @@
   &__actions {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     width: 100%;
+    gap: u.$bu;
+
+    button {
+      margin-left: auto;
+    }
 
     a,
     button {

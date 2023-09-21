@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../core/services/book.service';
-import { BehaviorSubject, Observable, filter, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
 import { Book } from '../core/models/book.interface';
 import { BooksFilters } from '../core/models/booksFilters.interface';
 

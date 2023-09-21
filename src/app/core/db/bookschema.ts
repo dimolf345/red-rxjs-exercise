@@ -2,11 +2,7 @@ export const BookSchema = {
   keyCompression: false,
   version: 0,
   title: 'Bookschema for the web app',
-  primaryKey: {
-    key: 'id',
-    fields: ['title', 'author'],
-    separator: ',',
-  },
+  primaryKey: 'id',
   type: 'object',
   properties: {
     id: {
@@ -25,7 +21,7 @@ export const BookSchema = {
     imageUrl: {
       type: 'string',
     },
-    pubblicationDate: {
+    pubblicationYear: {
       type: 'string',
     },
     description: {

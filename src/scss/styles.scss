@@ -34,11 +34,11 @@ h6 {
 }
 
 h1 {
-  font-size: $bu * 4;
+  font-size: $bu * 3.5;
 }
 
 h2 {
-  font-size: $bu * 3;
+  font-size: $bu * 2.75;
 }
 
 h3 {
@@ -46,7 +46,8 @@ h3 {
 }
 
 p,
-a {
+a,
+button {
   font-size: $bu * 1.8;
 }
 

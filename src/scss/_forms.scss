@@ -1,6 +1,7 @@
 @use "utilities" as u;
 
 .form {
+  position: relative;
   color: u.$color-primary;
   font-weight: 500;
 
@@ -12,6 +13,12 @@
       color: lightgrey;
       border: 1px solid transparent;
     }
+  }
+
+  &__title {
+    text-align: center;
+    color: u.$color-primary;
+    margin-bottom: u.$bu;
   }
 
   &__control {

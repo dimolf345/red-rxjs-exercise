@@ -1,4 +1,4 @@
-import { RxCollection } from 'rxdb';
+import { RxCollection, RxDocument } from 'rxdb';
 import { createRxDatabase } from 'rxdb';
 import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie';
 import { BookSchema } from './bookschema';
@@ -58,6 +58,16 @@ export class BookDB {
     return await result.exec();
   }
 
+  async findById(bookId: string) {
+    return (
+      (await this.books
+        .findOne({
+          selector: { id: { $eq: bookId } },
+        })
+        .exec()) || null
+    );
+  }
+
   async addBook(book?: Book) {
     const isAlredyPresent = await this.books
       .find({
@@ -69,7 +79,6 @@ export class BookDB {
         },
       })
       .exec();
-    console.log(isAlredyPresent);
     if (isAlredyPresent.length === 0) {
       console.log('Adding the Book!');
       const result = await this.books.insert({
@@ -96,5 +105,9 @@ export class BookDB {
     if (searchedBook) {
       return await searchedBook.remove();
     }
+  }
+
+  async updateBook(bookDocument: RxDocument<Book>, update: Book) {
+    return await bookDocument.patch(update);
   }
 }

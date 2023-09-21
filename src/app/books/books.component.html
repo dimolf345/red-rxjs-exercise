@@ -4,7 +4,16 @@
   [formGroup]="newBookForm"
   (ngSubmit)="onSubmit()"
 >
-  <h2>Add new book to Library</h2>
+  <a class="go-back btn btn--primary" routerLink=""
+    ><span class="sr-only">Go to home</span>
+    <fa-icon [icon]="this.leftIcon"></fa-icon>
+  </a>
+  <h2 *ngIf="!bookId.value; else editTitle" class="form__title">
+    Add new book to Library
+  </h2>
+  <ng-template #editTitle>
+    <h2 class="form__title">Edit Book</h2>
+  </ng-template>
   <!-- Title -->
   <div class="form__control">
     <label for="title">Title</label>
@@ -40,11 +49,11 @@
   </div>
   <!-- Pubblication Year -->
   <div class="form__control">
-    <label for="year">Pubblication Year</label>
+    <label for="pubblicationYear">Pubblication Year</label>
     <input
       class="btn"
       type="text"
-      id="year"
+      id="pubblicationYear"
       placeholder="example: 2019"
       formControlName="pubblicationYear"
     />

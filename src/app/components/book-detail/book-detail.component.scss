@@ -1,0 +1,62 @@
+@use "../../../scss/utilities" as u;
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+
+  &__title {
+    font-size: u.$bu * 3.5;
+    width: 75vw;
+  }
+
+  &__author {
+    font-size: u.$bu * 2.5;
+    font-style: italic;
+  }
+
+  &__title,
+  &__author {
+    text-align: center;
+  }
+
+  &__cover {
+    max-width: 60%;
+    img {
+      width: 40vw;
+    }
+  }
+
+  &__info {
+    div {
+      width: 50vw;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: u.$bu;
+      align-items: center;
+    }
+  }
+
+  &__description {
+    padding: u.$bu;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 -20px 50px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+
+.go-back {
+  position: absolute;
+  left: 0%;
+}

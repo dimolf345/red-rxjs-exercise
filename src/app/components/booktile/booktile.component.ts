@@ -3,6 +3,8 @@ import { Book } from 'src/app/core/models/book.interface';
 import { BookService } from 'src/app/core/services/book.service';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booktile',
@@ -13,11 +15,15 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
       <p>{{ book.author }}</p>
       <p>{{ book.pages }} pages</p>
       <div class="tile__actions">
-        <a class="btn btn--primary" [routerLink]="'details/' + book.id">
+        <a class="btn btn--primary" [routerLink]="'books/' + book.id">
           <span class="sr-only">View More</span>
-          <fa-icon [icon]="plusIcon"></fa-icon>
+          <fa-icon [icon]="detailsIcon"></fa-icon>
         </a>
-        <button class="btn btn--accent" (click)="onClick()">
+        <a class="btn btn--primary" [routerLink]="['books', 'edit', book.id]">
+          <span class="sr-only">Edit</span>
+          <fa-icon [icon]="editIcon"></fa-icon>
+        </a>
+        <button class="btn btn--accent" (click)="onClickDelete()">
           <span class="sr-only">Delete book</span>
           <fa-icon [icon]="trashIcon"></fa-icon>
         </button>
@@ -31,12 +37,13 @@ export class BooktileComponent implements OnInit {
     'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg';
   @Input()
   book: Book | undefined;
-  plusIcon = faEye;
+  detailsIcon = faEye;
+  editIcon = faPencil;
   trashIcon = faTrash;
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private router: Router) {}
 
-  async onClick() {
+  async onClickDelete() {
     await this.bookService.deleteBook(this.book!.id);
   }
 

@@ -29,7 +29,6 @@
     width: fit-content;
   }
 }
-
 .form__control {
   .form__control input {
     max-width: 250px;
@@ -48,4 +47,9 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.go-back {
+  position: absolute;
+  left: 0%;
 }
