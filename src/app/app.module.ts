@@ -11,6 +11,7 @@ import { BookService } from './core/services/book.service';
 import { BooklistComponent } from './components/booklist/booklist.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BookCardComponent } from './components/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BooktileComponent,
     BooklistComponent,
     SearchFormComponent,
+    BookCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,6 @@ interface customDB {
 
 export class BookDB {
   private books!: RxCollection;
-  private readonly DEAFULT_IMAGE_URL =
-    'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg';
 
   constructor(dbInstance: customDB) {
     this.books = dbInstance.books;
@@ -81,11 +79,7 @@ export class BookDB {
       .exec();
     if (isAlredyPresent.length === 0) {
       console.log('Adding the Book!');
-      const result = await this.books.insert({
-        ...book,
-        imageUrl: book?.imageUrl || this.DEAFULT_IMAGE_URL,
-        pages: book?.pages == 1 ? 999 : book?.pages,
-      });
+      const result = await this.books.insert(book);
       return result;
     } else return null;
   }

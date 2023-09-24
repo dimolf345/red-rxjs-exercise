@@ -1,14 +1,16 @@
 @use "../../../scss/utilities" as u;
 
 .form {
-  padding: 0 u.$bu;
+  padding: 0 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 
   &__control {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 8px;
-    gap: 24px;
+    margin-bottom: 1rem;
+    gap: 3rem;
     align-items: center;
   }
 

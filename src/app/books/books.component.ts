@@ -73,7 +73,7 @@ export class BooksComponent implements OnInit {
         this.newBookForm.patchValue({
           title: book.title,
           author: book.author,
-          pages: book.pages,
+          pages: Number(book.pages) || 999,
           pubblicationYear: book.pubblicationYear,
           description: book.description,
           imageUrl: book.imageUrl,

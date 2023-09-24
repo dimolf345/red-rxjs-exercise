@@ -1,13 +1,14 @@
 //BU stands for BASE UNIT, used for margin and padding
-$bu: 8px !default;
 $color-primary: #686364;
 $color-accent: #d11509;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1200px;
 
 //To set quickly all direction padding (if ratio ==1) or
 // top-bottom, left-right padding (if ratio != 1) starting with
-// $bu as base-value
+// 1rem as base-value
 @mixin padding($multiplier: 1, $ratio: 1) {
-  $base-padding: $bu * $multiplier;
+  $base-padding: 1rem * $multiplier;
   @if $ratio != 1 {
     $padding-tb: $base-padding * $ratio;
 
@@ -19,7 +20,7 @@ $color-accent: #d11509;
 
 //Margin: Same as padding
 @mixin margin($multiplier: 1, $ratio: 1) {
-  $base-margin: $bu * $multiplier;
+  $base-margin: 1rem * $multiplier;
   @if $ratio != 1 {
     $margin-tb: $base-margin * $ratio;
 
@@ -41,30 +42,18 @@ $color-accent: #d11509;
   box-shadow: $x-axis $y-axis $blur $color;
 }
 
-@mixin btn($variant: "primary", $padding: $bu) {
-  padding: $bu ($bu * 2);
-  border-radius: $bu;
-  background-color: white;
-  border: 1px solid;
-  transition: all 0.2s ease;
-
-  @if $variant == "primary" {
-  } @else {
-  }
-
-  &:hover {
-    @if $variant == "primary" {
-      background-color: $color-primary;
-      color: white;
-      border-color: white;
-    } @else {
-      background-color: $color-accent;
-      color: white;
-      border-color: white;
+@mixin min-width($breakpoint) {
+  @if ($breakpoint == medium) {
+    @media screen and (min-width: $breakpoint-medium) {
+      @content;
     }
+  } @else if ($breakpoint == large) {
+    @media screen and (min-width: $breakpoint-large) {
+      @content;
+    }
+  } @else {
+    @error "UNKNOWN MEDIA BREAKPOINT #{$breakpoint}";
   }
-
-  @content;
 }
 
 .sr-only {
@@ -78,8 +67,8 @@ $color-accent: #d11509;
 }
 
 .btn {
-  padding: $bu ($bu * 2);
-  border-radius: $bu;
+  padding: 1rem 2rem;
+  border-radius: 8px;
   background-color: white;
   border: 1px solid;
   transition: all 0.2s ease;

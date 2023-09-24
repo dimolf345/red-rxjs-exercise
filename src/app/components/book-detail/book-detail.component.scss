@@ -4,16 +4,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 2rem;
   position: relative;
 
   &__title {
-    font-size: u.$bu * 3.5;
+    font-size: 3.5rem;
     width: 75vw;
   }
 
   &__author {
-    font-size: u.$bu * 2.5;
+    font-size: 2.5rem;
     font-style: italic;
   }
 
@@ -26,6 +26,7 @@
     max-width: 60%;
     img {
       width: 40vw;
+      max-width: 300px;
     }
   }
 
@@ -34,13 +35,13 @@
       width: 50vw;
       display: flex;
       justify-content: space-evenly;
-      margin-bottom: u.$bu;
+      margin-bottom: 1rem;
       align-items: center;
     }
   }
 
   &__description {
-    padding: u.$bu;
+    padding: 1rem;
     border: 1px solid white;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0 -20px 50px -20px,
