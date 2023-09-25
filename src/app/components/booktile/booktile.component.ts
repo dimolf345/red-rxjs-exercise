@@ -4,7 +4,6 @@ import { BookService } from 'src/app/core/services/book.service';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booktile',
@@ -41,7 +40,7 @@ export class BooktileComponent implements OnInit {
   editIcon = faPencil;
   trashIcon = faTrash;
 
-  constructor(private bookService: BookService, private router: Router) {}
+  constructor(private bookService: BookService) {}
 
   async onClickDelete() {
     await this.bookService.deleteBook(this.book!.id);

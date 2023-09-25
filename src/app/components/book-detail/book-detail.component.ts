@@ -29,13 +29,13 @@ import { BookService } from 'src/app/core/services/book.service';
         <h3>Year</h3>
         <p>{{ book.pubblicationYear }}</p>
       </div>
-    </div>
-    <p class="book__description">{{ book.description }}</p>
-    <div class="book__actions">
-      <a [routerLink]="['..', 'edit', book.id]" class="btn btn--primary"
-        >Edit Book</a
-      >
-      <button class="btn btn--accent">Delete Book</button>
+      <p class="book__description">{{ book.description }}</p>
+      <div class="book__actions">
+        <a [routerLink]="['..', 'edit', book.id]" class="btn btn--primary"
+          >Edit Book</a
+        >
+        <button class="btn btn--accent">Delete Book</button>
+      </div>
     </div>
   </div>`,
   styleUrls: ['./book-detail.component.scss'],

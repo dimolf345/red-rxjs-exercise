@@ -3,6 +3,7 @@ $color-primary: #686364;
 $color-accent: #d11509;
 $breakpoint-medium: 768px;
 $breakpoint-large: 1200px;
+$shadow-color: rgb(50, 50, 93, 0.25);
 
 //To set quickly all direction padding (if ratio ==1) or
 // top-bottom, left-right padding (if ratio != 1) starting with
@@ -38,8 +39,9 @@ $breakpoint-large: 1200px;
   @content;
 }
 
-@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $shadow-color) {
-  box-shadow: $x-axis $y-axis $blur $color;
+@mixin box-shadow() {
+  box-shadow: rgb(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 @mixin min-width($breakpoint) {
