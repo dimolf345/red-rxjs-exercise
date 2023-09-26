@@ -7,7 +7,7 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-booktile',
-  template: ` <div class="tile" *ngIf="book">
+  template: ` <li class="tile" *ngIf="book">
     <img class="tile__img" [src]="book.imageUrl || DEFAULT_IMAGE_URL" alt="" />
     <div class="tile__details">
       <h3>{{ book.title }}</h3>
@@ -28,7 +28,7 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
         </button>
       </div>
     </div>
-  </div>`,
+</li>`,
   styleUrls: ['./booktile.component.scss'],
 })
 export class BooktileComponent implements OnInit {

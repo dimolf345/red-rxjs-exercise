@@ -6,7 +6,7 @@ import { BookService } from 'src/app/core/services/book.service';
 @Component({
   selector: 'app-book-card',
   template: `
-    <div class="card">
+    <li class="card">
       <div class="card__image">
         <img [src]="book.imageUrl" [alt]="book.imageUrl + ' cover'" />
       </div>
@@ -28,7 +28,7 @@ import { BookService } from 'src/app/core/services/book.service';
           <fa-icon [icon]="trashIcon"></fa-icon>
         </button>
       </div>
-    </div>
+</li>
   `,
   styleUrls: ['./book-card.component.scss'],
 })
