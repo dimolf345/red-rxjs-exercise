@@ -22,7 +22,7 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
           <span class="sr-only">Edit</span>
           <fa-icon [icon]="editIcon"></fa-icon>
         </a>
-        <button class="btn btn--accent" (click)="onClickDelete()">
+        <button data-testId="delete-btn" class="btn btn--accent" (click)="onClickDelete()">
           <span class="sr-only">Delete book</span>
           <fa-icon [icon]="trashIcon"></fa-icon>
         </button>

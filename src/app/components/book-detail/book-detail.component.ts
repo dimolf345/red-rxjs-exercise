@@ -13,7 +13,7 @@ import { BookService } from 'src/app/core/services/book.service';
       ><span class="sr-only">Go to home</span>
       <fa-icon [icon]="this.leftIcon"></fa-icon>
     </a>
-    <div>
+    <div class="wrapper">
       <h2 class="book__title">{{ book.title }}</h2>
       <p class="book__author">{{ book.author }}</p>
     </div>

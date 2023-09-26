@@ -1,16 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddBookComponent } from './books.component';
+import { BooksComponent } from './books.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
 
-describe('AddBookComponent', () => {
-  let component: AddBookComponent;
-  let fixture: ComponentFixture<AddBookComponent>;
+describe('BooksComponent', () => {
+  let component: BooksComponent;
+  let fixture: ComponentFixture<BooksComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AddBookComponent],
+      imports: [FontAwesomeModule, ReactiveFormsModule],
+      declarations: [BooksComponent],
+      providers: [{provide: ActivatedRoute, useValue: {
+        params: of({id: 123})}}]
     });
-    fixture = TestBed.createComponent(AddBookComponent);
+    fixture = TestBed.createComponent(BooksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

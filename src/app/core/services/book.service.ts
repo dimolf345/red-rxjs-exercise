@@ -3,7 +3,6 @@ import { Book } from '../models/book.interface';
 import { Observable } from 'rxjs';
 import { BookDB } from '../db/rxdb';
 import { BooksFilters } from '../models/booksFilters.interface';
-import { RxDocument } from 'rxdb';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +10,6 @@ import { RxDocument } from 'rxdb';
 export class BookService implements OnDestroy {
   private dao!: BookDB;
   $books: Observable<Book[]> = new Observable<Book[]>();
-  // private _books: Book[] = this.$books;
 
   constructor() {}
 

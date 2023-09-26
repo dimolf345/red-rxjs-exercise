@@ -23,7 +23,7 @@ import { BookService } from 'src/app/core/services/book.service';
           <span class="sr-only">Edit</span>
           <fa-icon [icon]="editIcon"></fa-icon>
         </a>
-        <button class="btn btn--accent">
+        <button data-testId="delete-btn" (click)="onClickDelete()" class="btn btn--accent">
           <span class="sr-only">Delete book</span>
           <fa-icon [icon]="trashIcon"></fa-icon>
         </button>
