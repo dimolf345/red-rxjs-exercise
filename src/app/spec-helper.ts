@@ -240,3 +240,16 @@ export function findComponents<T>(
 ): DebugElement[] {
   return fixture.debugElement.queryAll(By.css(selector));
 }
+
+
+/**
+ * Performs comparison between two sets to check if they
+ * contain the same elements
+ * @param set1 
+ * @param set2 
+ * @returns true or false
+ */
+export function compareSets(set1: Set<any>, set2: Set<any>): boolean {
+
+  return set1.size === set2.size && [...set1].every((element)=> set2.has(element))
+}

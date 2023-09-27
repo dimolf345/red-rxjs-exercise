@@ -19,14 +19,15 @@ describe('SearchFormComponent', () => {
   });
 
   it('searches for books by title', fakeAsync(() => {
+    const searchString = "Test search"
     const {debugElement} = fixture
     const searchInput = debugElement.query(By.css('[data-testId="search-title"]')).nativeElement as HTMLInputElement
     expect(searchInput).toBeTruthy();
-    searchInput.value = 'test search'
+    searchInput.value = searchString
     searchInput.dispatchEvent(new Event('input'))
     tick(250)
     fixture.detectChanges();
-    expect(component.$search.value?.title).toBe("test search")
+    expect(component.$search.value?.title).toBe(searchString)
   }));
 
   it('searches books by number of pages', fakeAsync(()=> {
@@ -34,6 +35,7 @@ describe('SearchFormComponent', () => {
     const selectInput = debugElement.query(By.css('[data-testId="search-pages"]'));
     expect(selectInput).toBeTruthy()
     const options = debugElement.queryAll(By.css('option'))
+    expect(options).toBeTruthy()
     const actualPagesSelected = options[1].nativeElement.value
     selectInput.nativeElement.value = actualPagesSelected
     selectInput.nativeElement.dispatchEvent(new Event("change"))

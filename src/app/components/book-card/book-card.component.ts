@@ -23,7 +23,7 @@ import { BookService } from 'src/app/core/services/book.service';
           <span class="sr-only">Edit</span>
           <fa-icon [icon]="editIcon"></fa-icon>
         </a>
-        <button data-testId="delete-btn" (click)="onClickDelete()" class="btn btn--accent">
+        <button appStopClickPropagation data-testId="delete-btn" (click)="onClickDelete($event)" class="btn btn--accent">
           <span class="sr-only">Delete book</span>
           <fa-icon [icon]="trashIcon"></fa-icon>
         </button>
@@ -42,7 +42,10 @@ export class BookCardComponent {
 
   constructor(private bookService: BookService) {}
 
-  async onClickDelete() {
-    await this.bookService.deleteBook(this.book!.id);
+  async onClickDelete(event: Event) {
+    event.stopPropagation()
+    const confirm = window.confirm(`Are you sure to delete ${this.book.title}`)
+    if(confirm) await this.bookService.deleteBook(this.book!.id);
+    else return
   }
 }

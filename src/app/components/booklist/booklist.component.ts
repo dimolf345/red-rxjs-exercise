@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/core/models/book.interface';
@@ -18,10 +19,10 @@ import { MediaService } from 'src/app/core/services/media.service';
         </a>
       </div>
       <ng-container *ngIf="$isMobile | async; else cards">
-        <app-booktile [book]="book" *ngFor="let book of books"> </app-booktile>
+        <app-booktile  [book]="book" *ngFor="let book of books"> </app-booktile>
       </ng-container>
       <ng-template #cards>
-        <app-book-card [book]="book" *ngFor="let book of books">
+        <app-book-card (click)=onClick(book.id) [book]="book" *ngFor="let book of books">
         </app-book-card>
       </ng-template>
     </ul>
@@ -34,9 +35,13 @@ export class BooklistComponent implements OnInit {
   plusIcon = faPlus;
   $isMobile!: Observable<boolean>;
 
-  constructor(private mediaService: MediaService) {}
+  constructor(private mediaService: MediaService, private router:Router) {}
 
   ngOnInit(): void {
     this.$isMobile = this.mediaService.observeMediaQuery('max-width', 768);
+  }
+
+  onClick(bookID: string) {
+    this.router.navigate(["books", bookID])
   }
 }

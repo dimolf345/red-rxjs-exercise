@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, debounceTime } from 'rxjs';
 import { BooksFilters } from 'src/app/core/models/booksFilters.interface';
@@ -40,18 +40,17 @@ export class SearchFormComponent implements OnInit {
     pages: new FormControl(0, Validators.min(0)),
   });
 
-  @Input('search')
-  $search: BehaviorSubject<BooksFilters | null> =
-    new BehaviorSubject<BooksFilters | null>(null);
+
+  @Output()
+  newSearch = new EventEmitter<BooksFilters>()
 
   ngOnInit(): void {
     this.$f.valueChanges
       .pipe(debounceTime(250))
       .subscribe((search: BooksFilters) => {
-        this.$search?.next({
+        this.newSearch.emit({
           title: search.title,
-          pages: Number(search.pages),
-        });
+        pages: Number(search.pages) || 0        })
       });
   }
 }

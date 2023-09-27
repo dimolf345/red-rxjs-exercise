@@ -12,6 +12,8 @@ import { BooklistComponent } from './components/booklist/booklist.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookCardComponent } from './components/book-card/book-card.component';
+import { StopClickPropagationDirective } from './core/directives/stop-click-propagation.directive';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     BooklistComponent,
     SearchFormComponent,
     BookCardComponent,
+    StopClickPropagationDirective,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     FontAwesomeModule,
     ReactiveFormsModule,
   ],
+  exports: [StopClickPropagationDirective],
   providers: [BookService],
   bootstrap: [AppComponent],
 })

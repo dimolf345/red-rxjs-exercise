@@ -35,6 +35,8 @@ describe('BooklistComponent', () => {
 
   it('renders book-card or book-tile component base on screen width (768px)' ,()=> {
     const {debugElement} = fixture
+    component.$isMobile = of(false)
+    fixture.detectChanges()
     const firstBookCard = debugElement.query(By.directive(BookCardComponent))
     const firstBookTile = debugElement.query(By.directive(BooktileComponent))
     expect(firstBookCard).toBeTruthy()
