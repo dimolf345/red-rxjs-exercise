@@ -15,11 +15,14 @@ import { BooksFilters } from 'src/app/core/models/booksFilters.interface';
           formControlName="title"
           type="text"
           placeholder="Search Form by titles"
+          data-testId = "search-title"
         />
       </div>
       <div class="form__control">
         <label for="pages-filter">Pages</label>
-        <select class="btn" id="pages-filter" formControlName="pages">
+        <select
+        data-testId="search-pages"
+        class="btn" id="pages-filter" formControlName="pages">
           <option value="0" selected><span>All</span></option>
           <option value="100"><span>Up to 100</span></option>
           <option value="200"><span>Up to 200</span></option>
